@@ -3,18 +3,108 @@ using namespace qrcode;
 int Mode_Encoding::Get_Source_Length(){
 	return length;
 }
+std::string Mode_Encoding::Letter_Mode_Encoding(char *src){
+	std::string source = src;
+	length = source.size();
+	std::string destination = "";
+	return destination;
+}
+std::string Mode_Encoding::Letter_Mode_Encoding(const char *src){
+	std::string source = src;
+	length = source.size();
+	std::string destination = "";
+	return destination;
+}
+std::string Mode_Encoding::Letter_Mode_Encoding(std::string & src){
+	std::string source = src;
+	length = source.size();
+	std::string destination = "";
+	return destination;
+}
+
+
+std::string Mode_Encoding::Byte_Mode_Encoding(char *src){
+	std::string source = src;
+	length = source.size();
+	std::string destination = "";
+	return destination;
+}
+std::string Mode_Encoding::Byte_Mode_Encoding(const char *src){
+	std::string source = src;
+	length = source.size();
+	std::string destination = "";
+	return destination;
+}
+std::string Mode_Encoding::Byte_Mode_Encoding(std::string & src){
+	std::string source = src;
+	length = source.size();
+	std::string destination = "";
+	return destination;
+}
+
+
+std::string Mode_Encoding::Chinese_Mode_Encoding(char *src){
+	std::string source = src;
+	length = source.size();
+	std::string destination = "";
+	return destination;
+}
+std::string Mode_Encoding::Chinese_Mode_Encoding(const char *src){
+	std::string source = src;
+	length = source.size();
+	std::string destination = "";
+	return destination;
+}
+std::string Mode_Encoding::Chinese_Mode_Encoding(std::string & src){
+	std::string source = src;
+	length = source.size();
+	std::string destination = "";
+	return destination;
+}
+
+
+
 std::string Mode_Encoding::Number_Mode_Encoding(char *src){
 	std::string source = src;
 	length = source.size();
+	std::string destination = "";
+	do{
+		if (!tool::is_pure_digital(source)){
+			break;
+		}
+		destination = tool::number_mode_encoding(source);
+		
+	}while(false);
+
+	return destination;
 }
 std::string Mode_Encoding::Number_Mode_Encoding(const char *src){
 	std::string source = src;
 	length = source.size();
+	std::string destination = "";
+	do{
+		if (!tool::is_pure_digital(source)){
+			break;
+		}
+		destination = tool::number_mode_encoding(source);
+
+	} while (false);
+	return destination;
 }
-std::string Mode_Encoding::Number_Mode_Encoding(std::string src){
+std::string Mode_Encoding::Number_Mode_Encoding(std::string & src){
 	std::string source = src;
 	length = source.size();
+	std::string destination = "";
+	do{
+		if (!tool::is_pure_digital(source)){
+			break;
+		}
+		destination = tool::number_mode_encoding(source);
+
+	} while (false);
+	return destination;
 }
+
 std::string Mode_Encoding::Encode(const char *src, int mode){
 	std::string code;
 	switch (mode){
@@ -35,7 +125,7 @@ std::string Mode_Encoding::Encode(const char *src, int mode){
 	}
 	return code;
 }
-std::string Mode_Encoding::Encode(std::string src, int mode){
+std::string Mode_Encoding::Encode(std::string & src, int mode){
 	std::string code;
 	switch (mode){
 	case Number_Mode:

@@ -1,5 +1,6 @@
-#ifndef BasicInfo_H
-#define BasicInfo_H
+#ifndef QRCode_BasicInfo_H
+#define QRCode_BasicInfo_H
+#include <exception>
 namespace qrcode{
 	static enum{
 		Correction_L = 0,
@@ -24,7 +25,22 @@ namespace qrcode{
 		int mode;
 		int level;
 	public:
+		/**
+		 *
+		 * @param <code>int</code> object
+		 *	set Version from 1 to 40
+		 * @void 
+		 * @throw arg not in [1,40]
+		 *
+		 */
 		void setVerison(int arg);
+		/**
+		 *
+		 *
+		 *
+		 *
+		 *
+		 */
 		void setMode(int arg);
 		void setLevel(int arg);
 		int  getVersion();
