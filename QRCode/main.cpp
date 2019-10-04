@@ -1,19 +1,20 @@
 #include <iostream>
-#include "Mode_Encoding.h"
-#include "Data_Encoding.h"
+#include "ModeEncoding.h"
+#include "DataEncoding.h"
 #include "BasicInfo.h"
 using namespace std;
 #include "Tool.h"
-using namespace qrcode::tool;
+using namespace qrcode;
 int main(){
-	qrcode::Mode_Encoding e;
-	string x=e.Encode("01234567", qrcode::Number_Mode);
+	qrcode::ModeEncoding e;
+	string x=e.Encode("01234567", qrcode::mode::Number_Mode);
 	cout << (1 & 0);
 //	string x= decimal_to_binary(123);
-	qrcode::BasicInfo *p=new qrcode::BasicInfo(1, 2, 3);
-	qrcode::Data_Encoding c;
+	qrcode::BasicInfo *p=new qrcode::BasicInfo(1,mode::Number_Mode,level::Correction_M);
+	qrcode::DataEncoding c;
 	c.setBasicInfo(p);
-	
+	c.setModeEncoding(&e);
+	std::string m=c.Encode("01234567");
 	std::cout<<c.getBasicInfo()->getLevel();
 	int y = 0;
 	cin >> y;

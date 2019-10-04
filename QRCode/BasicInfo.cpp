@@ -22,6 +22,6 @@ int BasicInfo::getLevel(){
 int BasicInfo::getMode(){
 	return this->mode;
 }
-int BasicInfo::getVersion(){
+const int BasicInfo::getVersion(){
 	return this->version;
 }

@@ -65,15 +65,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="BasicInfo.h" />
-    <ClInclude Include="Data_Encoding.h" />
-    <ClInclude Include="Mode_Encoding.h" />
+    <ClInclude Include="DataEncoding.h" />
+    <ClInclude Include="Limit.h" />
+    <ClInclude Include="ModeEncoding.h" />
+    <ClInclude Include="QRCodeException.h" />
     <ClInclude Include="Tool.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BasicInfo.cpp" />
-    <ClCompile Include="Data_Encoding.cpp" />
+    <ClCompile Include="DataEncoding.cpp" />
+    <ClCompile Include="Limit.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Mode_Encoding.cpp" />
+    <ClCompile Include="ModeEncoding.cpp" />
+    <ClCompile Include="QRCodeException.cpp" />
     <ClCompile Include="Tool.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
