@@ -9,6 +9,7 @@ namespace qrcode{
 			InvalidVersion,
 			InvalidMode,
 			InvalidLevel,
+			InvalidCorrectionLength,
 
 		};
 	}
@@ -28,6 +29,9 @@ namespace qrcode{
 				break;
 			case error::InvalidLevel:
 				what("Invalid Level");
+				break;
+			case error::InvalidCorrectionLength:
+				what("Invalid Correction Length");
 				break;
 			default:
 				break;

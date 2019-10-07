@@ -1,11 +1,12 @@
-﻿Build started 2019/10/4 15:53:56.
+﻿Build started 2019/10/7 16:29:43.
      1>Project "D:\QR_s\QRCode\QRCode\QRCode.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Limit.cpp
-         Limit.cpp
-     1>d:\qr_s\qrcode\qrcode\limit.cpp(612): warning C4715: 'qrcode::limit::length' : not all control paths return a value
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         main.cpp
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\QR_s\QRCode\Debug\QRCode.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\QR_s\QRCode\Debug\QRCode.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\QR_s\QRCode\Debug\QRCode.lib" /MACHINE:X86 Debug\BasicInfo.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\QR_s\QRCode\Debug\QRCode.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\QR_s\QRCode\Debug\QRCode.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\QR_s\QRCode\Debug\QRCode.lib" /MACHINE:X86 Debug\Alpha.obj
+         Debug\BasicInfo.obj
+         Debug\CorrectionEncoding.obj
          Debug\DataEncoding.obj
          Debug\Limit.obj
          Debug\main.obj
@@ -17,4 +18,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.26
+Time Elapsed 00:00:01.04

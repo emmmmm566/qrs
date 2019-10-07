@@ -3,7 +3,6 @@ using namespace qrcode;
 ModeEncoding::ModeEncoding(){
 }
 ModeEncoding::~ModeEncoding(){
-
 }
 int ModeEncoding::getSourceLength(){
 	return length;

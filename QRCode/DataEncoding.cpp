@@ -3,6 +3,7 @@ using namespace qrcode;
 DataEncoding::DataEncoding(){
 	basic_info = NULL;
 	mode_encoding = NULL;
+	mode_encoding = new ModeEncoding();
 }
 DataEncoding::~DataEncoding(){
 	if (basic_info != NULL){
@@ -106,6 +107,7 @@ std::string DataEncoding::Combine(const char * data){
 std::string DataEncoding::Encode(char *src){
 	std::string dst = "";
 	this->mode_indicator = basic_info->getMode();
+	mode_encoding->Encode(src, mode_indicator);
 	this->character_count_indicator = mode_encoding->getSourceLength();
 	std::string precoding = mode_encoding->Encode(src, mode_indicator);
 	dst = Combine(precoding.data());
@@ -114,6 +116,7 @@ std::string DataEncoding::Encode(char *src){
 std::string DataEncoding::Encode(const char *src){
 	std::string dst = "";
 	this->mode_indicator = basic_info->getMode();
+	mode_encoding->Encode(src, mode_indicator);
 	this->character_count_indicator = mode_encoding->getSourceLength();
 	std::string precoding = mode_encoding->Encode(src, mode_indicator);
 	dst = Combine(precoding.data());
@@ -122,6 +125,7 @@ std::string DataEncoding::Encode(const char *src){
 std::string DataEncoding::Encode(std::string & src){
 	std::string dst = "";
 	this->mode_indicator = basic_info->getMode();
+	mode_encoding->Encode(src, mode_indicator);
 	this->character_count_indicator = mode_encoding->getSourceLength();
 	std::string precoding = mode_encoding->Encode(src, mode_indicator);
 	dst = Combine(precoding.data());
@@ -132,10 +136,4 @@ void DataEncoding::setBasicInfo(BasicInfo * basic_info){
 }
 BasicInfo * DataEncoding::getBasicInfo(){
 	return this->basic_info;
-}
-void DataEncoding::setModeEncoding(ModeEncoding * mode_encoding){
-	this->mode_encoding = mode_encoding;
-}
-ModeEncoding * DataEncoding::getModeEncoding(){
-	return this->mode_encoding;
 }

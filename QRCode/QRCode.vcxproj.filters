@@ -7,6 +7,8 @@
     <ClInclude Include="ModeEncoding.h" />
     <ClInclude Include="QRCodeException.h" />
     <ClInclude Include="Limit.h" />
+    <ClInclude Include="CorrectionEncoding.h" />
+    <ClInclude Include="Alpha.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BasicInfo.cpp" />
@@ -16,5 +18,7 @@
     <ClCompile Include="ModeEncoding.cpp" />
     <ClCompile Include="QRCodeException.cpp" />
     <ClCompile Include="Limit.cpp" />
+    <ClCompile Include="CorrectionEncoding.cpp" />
+    <ClCompile Include="Alpha.cpp" />
   </ItemGroup>
 </Project>

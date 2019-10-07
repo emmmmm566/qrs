@@ -12,6 +12,12 @@ namespace qrcode{
 		//表7 QR码符号字符数和数据容量 数据码字数
 		int length(BasicInfo * const);
 	}
+	namespace correction_encoding{
+		//表9 QR码符号各版本的纠错特性 纠错码字数
+		int length(BasicInfo * const);
+		int getPolynomeAlpha(BasicInfo * const,int * arrays);
+		int code_to_polynome(std::string &,int * arrays);
+	}
 	namespace tool{
 		/**
 		 *
@@ -40,6 +46,5 @@ namespace qrcode{
 		 */
 		std::string decimal_to_binary(int src);
 	}
-	
 };
 #endif

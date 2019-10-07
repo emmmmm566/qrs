@@ -13,9 +13,10 @@ int main(){
 	qrcode::BasicInfo *p=new qrcode::BasicInfo(1,mode::Number_Mode,level::Correction_M);
 	qrcode::DataEncoding c;
 	c.setBasicInfo(p);
-	c.setModeEncoding(&e);
 	std::string m=c.Encode("01234567");
 	std::cout<<c.getBasicInfo()->getLevel();
+	
 	int y = 0;
 	cin >> y;
+
 }
