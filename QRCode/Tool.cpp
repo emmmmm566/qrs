@@ -1669,7 +1669,7 @@ int qrcode::data_encoding::length(BasicInfo * info){
 	}
 	return res;
 }
-int qrcode::correction_encoding::getPolynomeAlpha(BasicInfo * info, int * arrays){
+int qrcode::correction_encoding::getPolynomeAlpha(BasicInfo * info, int *& arrays){
 	int length = qrcode::correction_encoding::length(info);
 	if (arrays != NULL){
 		delete arrays;
@@ -1969,4 +1969,295 @@ int qrcode::correction_encoding::getPolynomeAlpha(BasicInfo * info, int * arrays
 			throw QRCodeException(qrcode::error::InvalidCorrectionLength);
 			break;
 	}
+}
+int qrcode::matrix::getSideLength(BasicInfo * info){
+	int res = ((info->getVersion() - 1) << 2) + 21;
+	return res;
+}
+int qrcode::matrix:: getPositionPatternsQuantity(BasicInfo *info){
+	int length = 0;
+	if (info->getVersion() <= 1){
+
+	}
+	else if (info->getVersion() < 7){
+		length = 1;
+	}
+	else if (info->getVersion() < 14){
+		length = 6;
+	}
+	else if (info->getVersion() < 21){
+		length = 13; 
+	}
+	else if (info->getVersion() < 28){
+		length = 22;
+	}
+	else if (info->getVersion() < 34){
+		length = 33;
+	}
+	else if (info->getVersion() < 41){
+		length = 46;
+	}
+	return length;
+}
+void qrcode::matrix::getPositionPatternsCoordinate(BasicInfo * info,int **&arrs){
+	int *position = NULL;
+	int len = 0;
+	//校正图形的位置 附录E
+	switch (info->getVersion()){
+	case 1:
+	{
+	}
+	break;
+	case 2:
+	{
+		position = new int[2]{6, 18};
+		len = 2;
+	}
+	break;
+	case 3:
+	{
+		position = new int[2]{6, 22};
+		len = 2;
+	}
+	break;
+	case 4:
+	{
+		position = new int[2]{6, 26};
+		len = 2;
+	}
+	break;
+	case 5:
+	{
+		position = new int[2]{6, 30};
+		len = 2;
+	}
+	break;
+	case 6:
+	{
+		position = new int[2]{6, 34};
+		len = 2;
+	}
+	break;
+	case 7:
+	{
+		position = new int[3]{6, 22, 38};
+		len = 3;
+	}
+	break;
+	case 8:
+	{
+		position = new int[3]{6, 24, 42};
+		len = 3;
+	}
+	break;
+	case 9:
+	{
+		position = new int[3]{6, 26, 46};
+		len = 3;
+	}
+	break;
+	case 10:
+	{
+		position = new int[3]{6, 28, 50};
+		len = 3;
+	}
+	break;
+	case 11:
+	{
+		position = new int[3]{6, 30, 54};
+		len = 3;
+	}
+	break;
+	case 12:
+	{
+		position = new int[3]{6, 32, 58};
+		len = 3;
+	}
+	break;
+	case 13:
+	{
+		position = new int[3]{6, 34, 62};
+		len = 3;
+	}
+	break;
+	case 14:
+	{
+		position = new int[4]{6, 26, 46, 66};
+		len = 4;
+	}
+	break;
+	case 15:
+	{
+		position = new int[4]{6, 26, 48, 70};
+		len = 4;
+	}
+	break;
+	case 16:
+	{
+		position = new int[4]{6, 26, 50, 74};
+		len = 4;
+	}
+	break;
+	case 17:
+	{
+		position = new int[4]{6, 30, 54, 78};
+		len = 4;
+	}
+	break;
+	case 18:
+	{
+		position = new int[4]{6, 30, 56, 82};
+		len = 4;
+	}
+	break;
+	case 19:
+	{
+		position = new int[4]{6, 30, 58, 86};
+		len = 4;
+	}
+	break;
+	case 20:
+	{
+		position = new int[4]{6, 34, 62, 90};
+		len = 4;
+	}
+	break;
+	case 21:
+	{
+		position = new int[5]{6, 28, 50, 72, 94};
+		len = 5;
+	}
+	break;
+	case 22:
+	{
+		position = new int[5]{6, 26, 50, 74, 98};
+		len = 5;
+	}
+	break;
+	case 23:
+	{
+		position = new int[5]{6, 30, 54, 78, 102};
+		len = 5;
+	}
+	break;
+	case 24:
+	{
+		position = new int[5]{6, 28, 54, 80, 106};
+		len = 5;
+	}
+	break;
+	case 25:
+	{
+		position = new int[5]{6, 32, 58, 84, 110};
+		len = 5;
+	}
+	break;
+	case 26:
+	{
+		position = new int[5]{6, 30, 58, 86, 114};
+		len = 5;
+	}
+	break;
+	case 27:
+	{
+		position = new int[5]{6, 34, 62, 90, 118};
+		len = 5;
+	}
+	break;
+	case 28:
+	{
+		position = new int[6]{6, 26, 50, 74, 98, 122};
+		len = 6;
+	}
+	break;
+	case 29:
+	{
+		position = new int[6]{6, 30, 54, 78, 102, 126};
+		len = 6;
+	}
+	break;
+	case 30:
+	{
+		position = new int[6]{6, 26, 52, 78, 104, 130};
+		len = 6;
+	}
+	break;
+	case 31:
+	{
+		position = new int[6]{6, 30, 56, 82, 108, 134};
+		len = 6;
+	}
+	break;
+	case 32:
+	{
+		position = new int[6]{6, 34, 60, 86, 112, 138};
+		len = 6;
+	}
+	break;
+	case 33:
+	{
+		position = new int[6]{6, 30, 58, 86, 114, 142};
+		len = 6;
+	}
+	break;
+	case 34:
+	{
+		position = new int[6]{6, 34, 62, 90, 118, 146};
+		len = 6;
+	}
+	break;
+	case 35:
+	{
+		position = new int[7]{6, 30, 54, 78, 102, 126, 150};
+		len = 7;
+	}
+	break;
+	case 36:
+	{
+		position = new int[7]{6, 24, 50, 76, 102, 128, 154};
+		len = 7;
+	}
+	break;
+	case 37:
+	{
+		position = new int[7]{6, 28, 54, 80, 106, 132, 158};
+		len = 7;
+	}
+	break;
+	case 38:
+	{
+		position = new int[7]{6, 32, 58, 84, 110, 136, 162};
+		len = 7;
+	}
+	break;
+	case 39:
+	{
+		position = new int[7]{6, 26, 54, 82, 110, 138, 166};
+		len = 7;
+	}
+	break;
+	case 40:
+	{
+		position = new int[7]{6, 30, 58, 86, 114, 142, 170};
+		len = 7;
+	}
+	break;
+	default:
+		break;
+	}
+	int quantity = qrcode::matrix::getPositionPatternsQuantity(info);
+	arrs = new int *[quantity];
+	int count = 0;
+	for (int i = 0; i < len; i++){
+		for (int j = 0; j < len; j++){
+			if (i == 0 && j == 0 || i == 0 && j == (len - 1) || j == 0 && i == (len - 1)){
+				continue;
+			}
+			else{
+				arrs[count++] = new int[2]{ position[i], position[j]};
+			}
+		}
+	}
+	delete position;
+	position = NULL;
 }

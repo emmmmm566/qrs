@@ -1,6 +1,29 @@
 #include "Alpha.h"
-void qrcode::alpha::Init(){
-	using namespace qrcode::alpha;
+void qrcode::Alpha::Destory(){
+	if (sequence != nullptr){
+		delete sequence;
+		sequence = nullptr;
+	}
+	if (inverse != nullptr){
+		delete inverse;
+		inverse = nullptr;
+	}
+}
+qrcode::Alpha::Alpha(){
+	inverse = nullptr;
+	sequence = nullptr;
+}
+qrcode::Alpha::~Alpha(){
+	if (sequence != nullptr){
+		delete sequence;
+		sequence = nullptr;
+	}
+	if (inverse != nullptr){
+		delete inverse;
+		inverse = nullptr;
+	}
+}
+void qrcode::Alpha::Init(){
 	if (sequence == nullptr){
 		sequence = new int[256];
 	}
@@ -16,16 +39,5 @@ void qrcode::alpha::Init(){
 		if (_operator > 255){
 			_operator = _operator ^ 285;
 		}
-	}
-}
-void qrcode::alpha::Destory(){
-	using namespace qrcode::alpha;
-	if (sequence != nullptr){
-		delete sequence;
-		sequence = nullptr;
-	}
-	if (inverse != nullptr){
-		delete inverse;
-		inverse = nullptr;
 	}
 }

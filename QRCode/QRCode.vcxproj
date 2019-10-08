@@ -69,8 +69,11 @@
     <ClInclude Include="CorrectionEncoding.h" />
     <ClInclude Include="DataEncoding.h" />
     <ClInclude Include="Limit.h" />
+    <ClInclude Include="Matrix.h" />
     <ClInclude Include="ModeEncoding.h" />
+    <ClInclude Include="QRCodePaint.h" />
     <ClInclude Include="QRCodeException.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Tool.h" />
   </ItemGroup>
   <ItemGroup>
@@ -80,9 +83,14 @@
     <ClCompile Include="DataEncoding.cpp" />
     <ClCompile Include="Limit.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="ModeEncoding.cpp" />
+    <ClCompile Include="QRCodePaint.cpp" />
     <ClCompile Include="QRCodeException.cpp" />
     <ClCompile Include="Tool.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="QRCode.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

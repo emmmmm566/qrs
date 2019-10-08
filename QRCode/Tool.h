@@ -15,8 +15,12 @@ namespace qrcode{
 	namespace correction_encoding{
 		//表9 QR码符号各版本的纠错特性 纠错码字数
 		int length(BasicInfo * const);
-		int getPolynomeAlpha(BasicInfo * const,int * arrays);
-		int code_to_polynome(std::string &,int * arrays);
+		int getPolynomeAlpha(BasicInfo * const,int *& arrays);
+	}
+	namespace matrix{
+		int getSideLength(BasicInfo *);
+		void getPositionPatternsCoordinate(BasicInfo *,int **& arrays);
+		int getPositionPatternsQuantity(BasicInfo *);
 	}
 	namespace tool{
 		/**

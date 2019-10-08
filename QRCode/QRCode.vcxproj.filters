@@ -9,6 +9,9 @@
     <ClInclude Include="Limit.h" />
     <ClInclude Include="CorrectionEncoding.h" />
     <ClInclude Include="Alpha.h" />
+    <ClInclude Include="Matrix.h" />
+    <ClInclude Include="QRCodePaint.h" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BasicInfo.cpp" />
@@ -20,5 +23,10 @@
     <ClCompile Include="Limit.cpp" />
     <ClCompile Include="CorrectionEncoding.cpp" />
     <ClCompile Include="Alpha.cpp" />
+    <ClCompile Include="Matrix.cpp" />
+    <ClCompile Include="QRCodePaint.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="QRCode.rc" />
   </ItemGroup>
 </Project>

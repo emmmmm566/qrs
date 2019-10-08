@@ -1,13 +1,21 @@
 #ifndef Correction_Encoding_H
 #define Correction_Encoding_H
 #include "BasicInfo.h"
+#include "Tool.h"
+#include "Alpha.h"
 #include <string>
+#include <iostream>
 namespace qrcode{
 	class CorrectionEncoding{
 	private:
-		BasicInfo * baisc_info;
-		int * result;
+		BasicInfo * basic_info;
+		int * dst;
+		int * src;
 		void Combine();
+		void Divide(int i);
+		std::string getDst();
+		void getSrc(std::string &);
+		void showDst();
 	public:
 		CorrectionEncoding();
 		~CorrectionEncoding();
