@@ -26,13 +26,12 @@ qrcode::CorrectionEncoding::~CorrectionEncoding(){
 		delete this->dst;
 		this->dst = NULL;
 	}
-	if (this->basic_info != NULL){
-		delete this->basic_info;
-		this->basic_info = NULL;
-	}
 	if (this->src != NULL){
 		delete this->src;
 		this->src = NULL;
+	}
+	if (this->basic_info != NULL){
+		basic_info = NULL;
 	}
 }
 void qrcode::CorrectionEncoding::getSrc(std::string & source){

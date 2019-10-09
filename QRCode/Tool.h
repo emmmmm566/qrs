@@ -17,9 +17,17 @@ namespace qrcode{
 		int length(BasicInfo * const);
 		int getPolynomeAlpha(BasicInfo * const,int *& arrays);
 	}
+	namespace interleave{
+		// @param settings[0] = Number of Blocks in Group 1,
+		// settings[1] = Number of Data Codewords in Each of Group 1's Blocks
+		// settings[2] = Number of Blocks in Group 2,
+		// settings[3] = Number of Data Codewords in Each of Group 1's Blocks
+		// @return <code>int</code> the length of settings array;
+		int getSettingsOfEncoding(BasicInfo * const,int *& settings);
+	}
 	namespace matrix{
 		int getSideLength(BasicInfo *);
-		void getPositionPatternsCoordinate(BasicInfo *,int **& arrays);
+		void getPositionPatternsCoordinate(BasicInfo * const,int **& arrays);
 		int getPositionPatternsQuantity(BasicInfo *);
 	}
 	namespace tool{

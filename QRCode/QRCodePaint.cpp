@@ -1,6 +1,9 @@
 #include "QRCodePaint.h"
 #include "Matrix.h"
 #include "BasicInfo.h"
+#include "CorrectionEncoding.h"
+#include "DataEncoding.h"
+#include "QRCodeEncoding.h"
 #include"resource.h"
 static QRCodePaint * stQRCodePaint;
 using namespace qrcode;
@@ -29,10 +32,24 @@ BOOL QRCodePaint::DoCommand(HWND hDlg, UINT message, WPARAM wParam, LPARAM lPara
 		HDC hDC;
 		PAINTSTRUCT PtStr;
 		hDC = BeginPaint(hDlg, &PtStr);
+
+		qrcode::BasicInfo * basic_info = new qrcode::BasicInfo(5, mode::Number_Mode, level::Correction_Q);
+		qrcode::DataEncoding de;
+		de.setBasicInfo(basic_info);
+		std::string data_code=de.Encode("01234567");
+		qrcode::CorrectionEncoding ce;
+		ce.setBasicInfo(basic_info);
+		std::string correct_code = ce.Encode(data_code);
+		qrcode::QRCodeEncoding qre;
+		qre.setBasicInfo(basic_info);
+		qre.Combine(data_code, correct_code);
+
 		qrcode::Matrix m;
-		qrcode::BasicInfo * basic_info = new qrcode::BasicInfo(5, mode::Number_Mode, level::Correction_M);
+		
 		m.setBasicInfo(basic_info);
 		m.Combine();
+
+		
 		
 		
 		Paint(hDC, m.getMatrix(), qrcode::matrix::getSideLength(basic_info));

@@ -124,6 +124,9 @@ qrcode::Matrix::Matrix(){
 }
 qrcode::Matrix::~Matrix(){
 	destoryMatrix();
+	if (basic_info != NULL){
+		basic_info = NULL;
+	}
 }
 void qrcode::Matrix::setBasicInfo(BasicInfo * info){
 	this->basic_info = info;

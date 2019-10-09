@@ -2261,3 +2261,934 @@ void qrcode::matrix::getPositionPatternsCoordinate(BasicInfo * info,int **&arrs)
 	delete position;
 	position = NULL;
 }
+int qrcode::interleave::getSettingsOfEncoding(BasicInfo * info,int *& settings){
+	int version = info->getVersion();
+	int level = info->getLevel();
+	int length = 0;
+	switch (version){
+		case 1:
+			switch (level){
+				case qrcode::level::Correction_L:
+					settings = new int[2]{1, 19};
+					length = 2;
+					break;
+				case qrcode::level::Correction_M:
+					settings = new int[2]{1, 16};
+					length = 2;
+					break;
+				case qrcode::level::Correction_Q:
+					settings = new int[2]{1, 13};
+					length = 2;
+					break;
+				case qrcode::level::Correction_H:
+					settings = new int[2]{1, 9};
+					length = 2;
+					break;
+				default:
+					throw QRCodeException(qrcode::error::InvalidLevel);
+					break;
+			}
+			break;
+		case 2:
+			switch (level){
+				case qrcode::level::Correction_L:
+					settings = new int[2]{1, 34};
+					length = 2;
+					break;
+				case qrcode::level::Correction_M:
+					settings = new int[2]{1, 28};
+					length = 2;
+					break;
+				case qrcode::level::Correction_Q:
+					settings = new int[2]{1, 22};
+					length = 2;
+					break;
+				case qrcode::level::Correction_H:
+					settings = new int[2]{1, 16};
+					length = 2;
+					break;
+				default:
+					throw QRCodeException(qrcode::error::InvalidLevel);
+					break;
+			}
+			break;
+		case 3:
+			switch (level){
+				case qrcode::level::Correction_L:
+					settings = new int[2]{1, 55};
+					length = 2;
+					break;
+				case qrcode::level::Correction_M:
+					settings = new int[2]{1, 44};
+					length = 2;
+					break;
+				case qrcode::level::Correction_Q:
+					settings = new int[2]{2, 17};
+					length = 2;
+					break;
+				case qrcode::level::Correction_H:
+					settings = new int[2]{2, 13};
+					length = 2;
+					break;
+				default:
+					throw QRCodeException(qrcode::error::InvalidLevel);
+					break;
+			}
+			break;
+		case 4:
+			switch (level){
+				case qrcode::level::Correction_L:
+					settings = new int[2]{1, 80};
+					length = 2;
+					break;
+				case qrcode::level::Correction_M:
+					settings = new int[2]{2, 32};
+					length = 2;
+					break;
+				case qrcode::level::Correction_Q:
+					settings = new int[2]{2, 24};
+					length = 2;
+					break;
+				case qrcode::level::Correction_H:
+					settings = new int[2]{4, 9};
+					length = 2;
+					break;
+				default:
+					throw QRCodeException(qrcode::error::InvalidLevel);
+					break;
+			}
+			break;
+		case 5:
+			switch (level){
+				case qrcode::level::Correction_L:
+					settings = new int[2]{1, 108};
+					length = 2;
+					break;
+				case qrcode::level::Correction_M:
+					settings = new int[2]{2, 43};
+					length = 2;
+					break;
+				case qrcode::level::Correction_Q:
+					settings = new int[4]{2, 15, 2, 16};
+					length = 4;
+					break;
+				case qrcode::level::Correction_H:
+					settings = new int[4]{2, 11, 2, 12};
+					length = 4;
+					break;
+				default:
+					throw QRCodeException(qrcode::error::InvalidLevel);
+					break;
+			}
+			break;
+	case 6:
+		switch (level){
+			case qrcode::level::Correction_L:
+				settings = new int[2]{2, 68};
+				length = 2;
+				break;
+			case qrcode::level::Correction_M:
+				settings = new int[2]{4, 27};
+				length = 2;
+				break;
+			case qrcode::level::Correction_Q:
+				settings = new int[2]{4, 19};
+				length = 2;
+				break;
+			case qrcode::level::Correction_H:
+				settings = new int[2]{4, 15};
+				length = 2;
+				break;
+			default:
+				throw QRCodeException(qrcode::error::InvalidLevel);
+				break;
+		}
+		break;
+	case 7:
+		switch (level){
+			case qrcode::level::Correction_L:
+				settings = new int[2]{2, 78};
+				length = 2;
+				break;
+			case qrcode::level::Correction_M:
+				settings = new int[2]{4, 31};
+				length = 2;
+				break;
+			case qrcode::level::Correction_Q:
+				settings = new int[4]{2, 14, 4, 15};
+				length = 4;
+				break;
+			case qrcode::level::Correction_H:
+				settings = new int[4]{4, 13, 1, 14};
+				length = 4;
+				break;
+			default:
+				throw QRCodeException(qrcode::error::InvalidLevel);
+				break;
+			}
+			break;
+	case 8:
+		switch (level){
+			case qrcode::level::Correction_L:
+				settings = new int[2]{2, 97};
+				length = 2;
+				break;
+			case qrcode::level::Correction_M:
+				settings = new int[4]{2, 38, 2, 39};
+				length = 4;
+				break;
+			case qrcode::level::Correction_Q:
+				settings = new int[4]{4, 18, 2, 19};
+				length = 4;
+				break;
+			case qrcode::level::Correction_H:
+				settings = new int[4]{4, 14, 2, 15};
+				length = 4;
+				break;
+			default:
+				throw QRCodeException(qrcode::error::InvalidLevel);
+				break;
+			}
+			break;
+	case 9:
+		switch (level){
+			case qrcode::level::Correction_L:
+				settings = new int[2]{2, 116};
+				length = 2;
+				break;
+			case qrcode::level::Correction_M:
+				settings = new int[4]{3, 36, 2, 37};
+				length = 4;
+				break;
+			case qrcode::level::Correction_Q:
+				settings = new int[4]{4, 16, 4, 17};
+				length = 4;
+				break;
+			case qrcode::level::Correction_H:
+				settings = new int[4]{4, 12, 4, 13};
+				length = 4;
+				break;
+			default:
+				throw QRCodeException(qrcode::error::InvalidLevel);
+				break;
+		}
+		break;
+	case 10:
+		switch (level){
+			case qrcode::level::Correction_L:
+				settings = new int[4]{2, 68, 2, 69};
+				length = 4;
+				break;
+			case qrcode::level::Correction_M:
+				settings = new int[4]{4, 43, 1, 44};
+				length = 4;
+				break;
+			case qrcode::level::Correction_Q:
+				settings = new int[4]{6, 19, 2, 20};
+				length = 4;
+				break;
+			case qrcode::level::Correction_H:
+				settings = new int[4]{6, 15, 2, 16};
+				length = 4;
+				break;
+			default:
+				throw QRCodeException(qrcode::error::InvalidLevel);
+				break;
+		}
+		break;
+	case 11:
+		switch (level){
+			case qrcode::level::Correction_L:
+				settings = new int[2]{4, 81};
+				length = 2;
+				break;
+			case qrcode::level::Correction_M:
+				settings = new int[4]{1, 50, 4, 51};
+				length = 4;
+				break;
+			case qrcode::level::Correction_Q:
+				settings = new int[4]{4, 22, 4, 23};
+				length = 4;
+				break;
+			case qrcode::level::Correction_H:
+				settings = new int[4]{3, 12, 8, 13};
+				length = 4;
+				break;
+			default:
+				throw QRCodeException(qrcode::error::InvalidLevel);
+				break;
+		}
+		break;
+	case 12:
+		switch (level){
+			case qrcode::level::Correction_L:
+				settings = new int[4]{2, 92, 2, 93};
+				length = 4;
+				break;
+			case qrcode::level::Correction_M:
+				settings = new int[4]{6, 36, 2, 37};
+				length = 4;
+				break;
+			case qrcode::level::Correction_Q:
+				settings = new int[4]{4, 20, 6, 21};
+				length = 4;
+				break;
+			case qrcode::level::Correction_H:
+				settings = new int[4]{7, 14, 4, 15};
+				length = 4;
+				break;
+			default:
+				throw QRCodeException(qrcode::error::InvalidLevel);
+				break;
+			}
+		break;
+	case 13:
+		switch (level){
+			case qrcode::level::Correction_L:
+				settings = new int[2]{4, 107};
+				length = 2;
+				break;
+			case qrcode::level::Correction_M:
+				settings = new int[4]{8, 37, 1, 38};
+				length = 4;
+				break;
+			case qrcode::level::Correction_Q:
+				settings = new int[4]{8, 20, 4, 21};
+				length = 4;
+				break;
+			case qrcode::level::Correction_H:
+				settings = new int[4]{12, 11, 4, 12};
+				length = 4;
+				break;
+			default:
+				throw QRCodeException(qrcode::error::InvalidLevel);
+				break;
+		}
+		break;
+	case 14:
+		switch (level){
+			case qrcode::level::Correction_L:
+				settings = new int[4]{3, 115, 1, 116};
+				length = 4;
+				break;
+			case qrcode::level::Correction_M:
+				settings = new int[4]{4, 40, 5, 41};
+				length = 4;
+				break;
+			case qrcode::level::Correction_Q:
+				settings = new int[4]{11, 16, 5, 17};
+				length = 4;
+				break;
+			case qrcode::level::Correction_H:
+				settings = new int[4]{11, 12, 5, 13};
+				length = 4;
+				break;
+			default:
+				throw QRCodeException(qrcode::error::InvalidLevel);
+				break;
+			}
+		break;
+	case 15:
+		switch (level){
+			case qrcode::level::Correction_L:
+				settings = new int[4]{5, 87, 1, 88};
+				length = 4;
+				break;
+			case qrcode::level::Correction_M:
+				settings = new int[4]{5, 41, 5, 42};
+				length = 4;
+				break;
+			case qrcode::level::Correction_Q:
+				settings = new int[4]{5, 24, 7, 25};
+				length = 4;
+				break;
+			case qrcode::level::Correction_H:
+				settings = new int[4]{11, 12, 7, 13};
+				length = 4;
+				break;
+			default:
+				throw QRCodeException(qrcode::error::InvalidLevel);
+				break;
+		}
+		break;
+	case 16:
+		switch (level){
+			case qrcode::level::Correction_L:
+				settings = new int[4]{5, 98, 1, 99};
+				length = 4;
+				break;
+			case qrcode::level::Correction_M:
+				settings = new int[4]{7, 45, 3, 46};
+				length = 4;
+				break;
+			case qrcode::level::Correction_Q:
+				settings = new int[4]{15, 19, 2, 20};
+				length = 4;
+				break;
+			case qrcode::level::Correction_H:
+				settings = new int[4]{3, 15, 13, 16};
+				length = 4;
+				break;
+			default:
+				throw QRCodeException(qrcode::error::InvalidLevel);
+				break;
+		}
+		break;
+	case 17:
+		switch (level){
+			case qrcode::level::Correction_L:
+				settings = new int[4]{1, 107, 5, 108};
+				length = 4;
+				break;
+			case qrcode::level::Correction_M:
+				settings = new int[4]{10, 46, 1, 47};
+				length = 4;
+				break;
+			case qrcode::level::Correction_Q:
+				settings = new int[4]{1, 22, 15, 23};
+				length = 4;
+				break;
+			case qrcode::level::Correction_H:
+				settings = new int[4]{2, 14, 17, 15};
+				length = 4;
+				break;
+			default:
+				throw QRCodeException(qrcode::error::InvalidLevel);
+				break;
+		}
+		break;
+	case 18:
+		switch (level){
+			case qrcode::level::Correction_L:
+				settings = new int[4]{5, 120, 1, 121};
+				length = 4;
+				break;
+			case qrcode::level::Correction_M:
+				settings = new int[4]{9, 43, 4, 44};
+				length = 4;
+				break;
+			case qrcode::level::Correction_Q:
+				settings = new int[4]{17, 22, 1, 23};
+				length = 4;
+				break;
+			case qrcode::level::Correction_H:
+				settings = new int[4]{2, 14, 19, 15};
+				length = 4;
+				break;
+			default:
+				throw QRCodeException(qrcode::error::InvalidLevel);
+				break;
+		}
+		break;
+	case 19:
+		switch (level){
+			case qrcode::level::Correction_L:
+				settings = new int[4]{3, 113, 4, 114};
+				length = 4;
+				break;
+			case qrcode::level::Correction_M:
+				settings = new int[4]{3, 44, 11, 45};
+				length = 4;
+				break;
+			case qrcode::level::Correction_Q:
+				settings = new int[4]{17, 21, 4, 22};
+				length = 4;
+				break;
+			case qrcode::level::Correction_H:
+				settings = new int[4]{9, 13, 16, 14};
+				length = 4;
+				break;
+			default:
+				throw QRCodeException(qrcode::error::InvalidLevel);
+				break;
+		}
+		break;
+	case 20:
+		switch (level){
+			case qrcode::level::Correction_L:
+				settings = new int[4]{3, 107, 5, 108};
+				length = 4;
+				break;
+			case qrcode::level::Correction_M:
+				settings = new int[4]{3, 41, 13, 42};
+				length = 4;
+				break;
+			case qrcode::level::Correction_Q:
+				settings = new int[4]{15, 24, 5, 25};
+				length = 4;
+				break;
+			case qrcode::level::Correction_H:
+				settings = new int[4]{15, 15, 10, 16};
+				length = 4;
+				break;
+			default:
+				throw QRCodeException(qrcode::error::InvalidLevel);
+				break;
+		}
+		break;
+	case 21:
+		switch (level){
+			case qrcode::level::Correction_L:
+				settings = new int[4]{4, 116, 4, 117};
+				length = 4;
+				break;
+			case qrcode::level::Correction_M:
+				settings = new int[2]{17, 42};
+				length = 2;
+				break;
+			case qrcode::level::Correction_Q:
+				settings = new int[4]{17, 22, 6, 23};
+				length = 4;
+				break;
+			case qrcode::level::Correction_H:
+				settings = new int[4]{19, 16, 6, 17};
+				length = 4;
+				break;
+			default:
+				throw QRCodeException(qrcode::error::InvalidLevel);
+				break;
+		}
+		break;
+	case 22:
+		switch (level){
+			case qrcode::level::Correction_L:
+				settings = new int[4]{2, 111, 7, 112};
+				length = 4;
+				break;
+			case qrcode::level::Correction_M:
+				settings = new int[2]{17, 46};
+				length = 2;
+				break;
+			case qrcode::level::Correction_Q:
+				settings = new int[4]{7, 24, 16, 25};
+				length = 4;
+				break;
+			case qrcode::level::Correction_H:
+				settings = new int[2]{34, 13};
+				length = 2;
+				break;
+			default:
+				throw QRCodeException(qrcode::error::InvalidLevel);
+				break;
+		}
+		break;
+	case 23:
+		switch (level){
+			case qrcode::level::Correction_L:
+				settings = new int[4]{4, 121, 5, 122};
+				length = 4;
+				break;
+			case qrcode::level::Correction_M:
+				settings = new int[4]{4, 47, 14, 48};
+				length = 4;
+				break;
+			case qrcode::level::Correction_Q:
+				settings = new int[4]{11, 24, 14, 25};
+				length = 4;
+				break;
+			case qrcode::level::Correction_H:
+				settings = new int[4]{16, 15, 14, 16};
+				length = 4;
+				break;
+			default:
+				throw QRCodeException(qrcode::error::InvalidLevel);
+				break;
+		}
+		break;
+	case 24:
+		switch (level){
+			case qrcode::level::Correction_L:
+				settings = new int[4]{6, 117, 4, 118};
+				length = 4;
+				break;
+			case qrcode::level::Correction_M:
+				settings = new int[4]{6, 45, 14, 46};
+				length = 4;
+				break;
+			case qrcode::level::Correction_Q:
+				settings = new int[4]{11, 24, 16, 25};
+				length = 4;
+				break;
+			case qrcode::level::Correction_H:
+				settings = new int[4]{30, 16, 2, 17};
+				length = 4;
+				break;
+			default:
+				throw QRCodeException(qrcode::error::InvalidLevel);
+				break;
+		}
+		break;
+	case 25:
+		switch (level){
+			case qrcode::level::Correction_L:
+				settings = new int[4]{8, 106, 4, 107};
+				length = 4;
+				break;
+			case qrcode::level::Correction_M:
+				settings = new int[4]{8, 47, 13, 48};
+				length = 4;
+				break;
+			case qrcode::level::Correction_Q:
+				settings = new int[4]{7, 24, 22, 25};
+				length = 4;
+				break;
+			case qrcode::level::Correction_H:
+				settings = new int[4]{22, 15, 13, 16};
+				length = 4;
+				break;
+			default:
+				throw QRCodeException(qrcode::error::InvalidLevel);
+				break;
+		}
+		break;
+	case 26:
+		switch (level){
+			case qrcode::level::Correction_L:
+				settings = new int[4]{10, 114, 2, 115};
+				length = 4;
+				break;
+			case qrcode::level::Correction_M:
+				settings = new int[4]{19, 46, 4, 47};
+				length = 4;
+				break;
+			case qrcode::level::Correction_Q:
+				settings = new int[4]{28, 22, 6, 23};
+				length = 4;
+				break;
+			case qrcode::level::Correction_H:
+				settings = new int[4]{33, 16, 4, 17};
+				length = 4;
+				break;
+			default:
+				throw QRCodeException(qrcode::error::InvalidLevel);
+				break;
+		}
+		break;
+	case 27:
+		switch (level){
+			case qrcode::level::Correction_L:
+				settings = new int[4]{8, 122, 4, 123};
+				length = 4;
+				break;
+			case qrcode::level::Correction_M:
+				settings = new int[4]{22, 45, 3, 46};
+				length = 4;
+				break;
+			case qrcode::level::Correction_Q:
+				settings = new int[4]{8, 23, 26, 24};
+				length = 4;
+				break;
+			case qrcode::level::Correction_H:
+				settings = new int[4]{12, 15, 28, 16};
+				length = 4;
+				break;
+			default:
+				throw QRCodeException(qrcode::error::InvalidLevel);
+				break;
+		}
+		break;
+	case 28:
+		switch (level){
+			case qrcode::level::Correction_L:
+				settings = new int[4]{3, 117, 10, 118};
+				length = 4;
+				break;
+			case qrcode::level::Correction_M:
+				settings = new int[4]{3, 45, 23, 46};
+				length = 4;
+				break;
+			case qrcode::level::Correction_Q:
+				settings = new int[4]{4, 24, 31, 25};
+				length = 4;
+				break;
+			case qrcode::level::Correction_H:
+				settings = new int[4]{11, 15, 31, 16};
+				length = 4;
+				break;
+			default:
+				throw QRCodeException(qrcode::error::InvalidLevel);
+				break;
+		}
+		break;
+	case 29:
+		switch (level){
+			case qrcode::level::Correction_L:
+				settings = new int[4]{7, 116, 7, 117};
+				length = 4;
+				break;
+			case qrcode::level::Correction_M:
+				settings = new int[4]{21, 45, 7, 46};
+				length = 4;
+				break;
+			case qrcode::level::Correction_Q:
+				settings = new int[4]{1, 23, 37, 24};
+				length = 4;
+				break;
+			case qrcode::level::Correction_H:
+				settings = new int[4]{19, 15, 26, 16};
+				length = 4;
+				break;
+			default:
+				throw QRCodeException(qrcode::error::InvalidLevel);
+				break;
+		}
+		break;
+	case 30:
+		switch (level){
+			case qrcode::level::Correction_L:
+				settings = new int[4]{5, 115, 10, 116};
+				length = 4;
+				break;
+			case qrcode::level::Correction_M:
+				settings = new int[4]{19, 47, 10, 48};
+				length = 4;
+				break;
+			case qrcode::level::Correction_Q:
+				settings = new int[4]{15, 24, 25, 25};
+				length = 4;
+				break;
+			case qrcode::level::Correction_H:
+				settings = new int[4]{23, 15, 25, 16};
+				length = 4;
+				break;
+			default:
+				throw QRCodeException(qrcode::error::InvalidLevel);
+				break;
+		}
+		break;
+	case 31:
+		switch (level){
+			case qrcode::level::Correction_L:
+				settings = new int[4]{13, 115, 3, 116};
+				length = 4;
+				break;
+			case qrcode::level::Correction_M:
+				settings = new int[4]{2, 46, 29, 47};
+				length = 4;
+				break;
+			case qrcode::level::Correction_Q:
+				settings = new int[4]{42, 24, 1, 25};
+				length = 4;
+				break;
+			case qrcode::level::Correction_H:
+				settings = new int[4]{23, 15, 28, 16};
+				length = 4;
+				break;
+			default:
+				throw QRCodeException(qrcode::error::InvalidLevel);
+				break;
+		}
+		break;
+	case 32:
+		switch (level){
+			case qrcode::level::Correction_L:
+				settings = new int[2]{17, 115};
+				length = 2;
+				break;
+			case qrcode::level::Correction_M:
+				settings = new int[4]{10, 46, 23, 47};
+				length = 4;
+				break;
+			case qrcode::level::Correction_Q:
+				settings = new int[4]{10, 24, 35, 25};
+				length = 4;
+				break;
+			case qrcode::level::Correction_H:
+				settings = new int[4]{19, 15, 35, 16};
+				length = 4;
+				break;
+			default:
+				throw QRCodeException(qrcode::error::InvalidLevel);
+				break;
+		}
+		break;
+	case 33:
+		switch (level){
+			case qrcode::level::Correction_L:
+				settings = new int[4]{17, 115, 1, 116};
+				length = 4;
+				break;
+			case qrcode::level::Correction_M:
+				settings = new int[4]{14, 46, 21, 47};
+				length = 4;
+				break;
+			case qrcode::level::Correction_Q:
+				settings = new int[4]{29, 24, 19, 25};
+				length = 4;
+				break;
+			case qrcode::level::Correction_H:
+				settings = new int[4]{11, 15, 46, 16};
+				length = 4;
+				break;
+			default:
+				throw QRCodeException(qrcode::error::InvalidLevel);
+				break;
+		}
+		break;
+	case 34:
+		switch (level){
+			case qrcode::level::Correction_L:
+				settings = new int[4]{13, 115, 6, 116};
+				length = 4;
+				break;
+			case qrcode::level::Correction_M:
+				settings = new int[4]{14, 46, 23, 47};
+				length = 4;
+				break;
+			case qrcode::level::Correction_Q:
+				settings = new int[4]{44, 24, 7, 25};
+				length = 4;
+				break;
+			case qrcode::level::Correction_H:
+				settings = new int[4]{59, 16, 1, 17};
+				length = 4;
+				break;
+			default:
+				throw QRCodeException(qrcode::error::InvalidLevel);
+				break;
+		}
+		break;
+	case 35:
+		switch (level){
+			case qrcode::level::Correction_L:
+				settings = new int[4]{12, 121, 7, 122};
+				length = 4;
+				break;
+			case qrcode::level::Correction_M:
+				settings = new int[4]{12, 47, 26, 48};
+				length = 4;
+				break;
+			case qrcode::level::Correction_Q:
+				settings = new int[4]{39, 24, 14, 25};
+				length = 4;
+				break;
+			case qrcode::level::Correction_H:
+				settings = new int[4]{22, 15, 41, 16};
+				length = 4;
+				break;
+			default:
+				throw QRCodeException(qrcode::error::InvalidLevel);
+				break;
+		}
+		break;
+	case 36:
+		switch (level){
+			case qrcode::level::Correction_L:
+				settings = new int[4]{6, 121, 14, 122};
+				length = 4;
+				break;
+			case qrcode::level::Correction_M:
+				settings = new int[4]{6, 47, 34, 48};
+				length = 4;
+				break;
+			case qrcode::level::Correction_Q:
+				settings = new int[4]{46, 24, 10, 25};
+				length = 4;
+				break;
+			case qrcode::level::Correction_H:
+				settings = new int[4]{2, 15, 64, 16};
+				length = 4;
+				break;
+			default:
+				throw QRCodeException(qrcode::error::InvalidLevel);
+				break;
+		}	
+		break;
+	case 37:
+		switch (level){
+			case qrcode::level::Correction_L:
+				settings = new int[4]{17, 122, 4, 123};
+				length = 4;
+				break;
+			case qrcode::level::Correction_M:
+				settings = new int[4]{29, 46, 14, 47};
+				length = 4;
+				break;
+			case qrcode::level::Correction_Q:
+				settings = new int[4]{49, 24, 10, 25};
+				length = 4;
+				break;
+			case qrcode::level::Correction_H:
+				settings = new int[4]{24, 15, 46, 16};
+				length = 4;
+				break;
+			default:
+				throw QRCodeException(qrcode::error::InvalidLevel);
+				break;
+		}
+		break;
+	case 38:
+		switch (level){
+			case qrcode::level::Correction_L:
+				settings = new int[4]{4, 122, 18, 123};
+				length = 4;
+				break;
+			case qrcode::level::Correction_M:
+				settings = new int[4]{13, 46, 32, 47};
+				length = 4;
+				break;
+			case qrcode::level::Correction_Q:
+				settings = new int[4]{48, 24, 14, 25};
+				length = 4;
+				break;
+			case qrcode::level::Correction_H:
+				settings = new int[4]{42, 15, 32, 16};
+				length = 4;
+				break;
+			default:
+				throw QRCodeException(qrcode::error::InvalidLevel);
+				break;
+		}
+		break;
+	case 39:
+		switch (level){
+			case qrcode::level::Correction_L:
+				settings = new int[4]{20, 117, 4, 118};
+				length = 4;
+				break;
+			case qrcode::level::Correction_M:
+				settings = new int[4]{40, 47, 7, 48};
+				length = 4;
+				break;
+			case qrcode::level::Correction_Q:
+				settings = new int[4]{43, 24, 22, 25};
+				length = 4;
+				break;
+			case qrcode::level::Correction_H:
+				settings = new int[4]{10, 15, 67, 16};
+				length = 4;
+				break;
+		default:
+			throw QRCodeException(qrcode::error::InvalidLevel);
+			break;
+		}
+		break;
+	case 40:
+		switch (level){
+		case qrcode::level::Correction_L:
+			settings = new int[4]{19, 118, 6, 119};
+			length = 4;
+			break;
+		case qrcode::level::Correction_M:
+			settings = new int[4]{18, 47, 31, 48};
+			length = 4;
+			break;
+		case qrcode::level::Correction_Q:
+			settings = new int[4]{34, 24, 34, 25};
+			length = 4;
+			break;
+		case qrcode::level::Correction_H:
+			settings = new int[4]{20, 15, 61, 16};
+			length = 4;
+			break;
+		default:
+			throw QRCodeException(qrcode::error::InvalidLevel);
+			break;
+		}
+		break;
+	default:
+		throw QRCodeException(qrcode::error::InvalidVersion);
+		break;
+	}
+	return length;
+}

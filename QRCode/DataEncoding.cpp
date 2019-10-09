@@ -6,13 +6,12 @@ DataEncoding::DataEncoding(){
 	mode_encoding = new ModeEncoding();
 }
 DataEncoding::~DataEncoding(){
-	if (basic_info != NULL){
-		delete basic_info;
-		basic_info = NULL;
-	}
 	if (mode_encoding != NULL){
 		delete mode_encoding;
 		mode_encoding = NULL;
+	}
+	if (basic_info != NULL){
+		basic_info = NULL;
 	}
 }
 std::string DataEncoding::Combine(const char * data){

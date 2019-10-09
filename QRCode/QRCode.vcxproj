@@ -71,6 +71,7 @@
     <ClInclude Include="Limit.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="ModeEncoding.h" />
+    <ClInclude Include="QRCodeEncoding.h" />
     <ClInclude Include="QRCodePaint.h" />
     <ClInclude Include="QRCodeException.h" />
     <ClInclude Include="resource.h" />
@@ -85,6 +86,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="ModeEncoding.cpp" />
+    <ClCompile Include="QRCodeEncoding.cpp" />
     <ClCompile Include="QRCodePaint.cpp" />
     <ClCompile Include="QRCodeException.cpp" />
     <ClCompile Include="Tool.cpp" />
