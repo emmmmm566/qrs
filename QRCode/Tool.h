@@ -16,6 +16,9 @@ namespace qrcode{
 		//表9 QR码符号各版本的纠错特性 纠错码字数
 		int length(BasicInfo * const);
 		int getPolynomeAlpha(BasicInfo * const,int *& arrays);
+		
+		int getModulus(int length, int position);
+		void getMidModulus(int begin,int end,const int position,int &res);
 	}
 	namespace interleave{
 		// @param settings[0] = Number of Blocks in Group 1,

@@ -3192,3 +3192,37 @@ int qrcode::interleave::getSettingsOfEncoding(BasicInfo * info,int *& settings){
 	}
 	return length;
 }
+int qrcode::correction_encoding::getModulus(int length, int position){
+	int res = 0;
+
+	do{
+		if (length < 0 || position>length){
+			break;
+		}
+		// (x-a^0)，(x-a^1)，，，(x-a^10)
+		// first alpha Modulus
+		if (position == 0){
+			break;
+		}
+		// (x-a^0)，(x-a^1)，，，(x-a^10)
+		// last alpha Modulus
+		else if (position == length){
+			int sum = 0;
+			for (int i = length - 1; i > 0; i--){
+				sum += i;
+			}
+			res = sum % 255;
+			break;
+		}
+		else{
+
+			break;
+		}
+
+	} while (false);
+
+
+	
+	
+	return res;
+}

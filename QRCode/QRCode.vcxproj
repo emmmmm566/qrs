@@ -66,6 +66,7 @@
   <ItemGroup>
     <ClInclude Include="Alpha.h" />
     <ClInclude Include="BasicInfo.h" />
+    <ClInclude Include="Combination.h" />
     <ClInclude Include="CorrectionEncoding.h" />
     <ClInclude Include="DataEncoding.h" />
     <ClInclude Include="Limit.h" />
@@ -80,6 +81,7 @@
   <ItemGroup>
     <ClCompile Include="Alpha.cpp" />
     <ClCompile Include="BasicInfo.cpp" />
+    <ClCompile Include="Combination.cpp" />
     <ClCompile Include="CorrectionEncoding.cpp" />
     <ClCompile Include="DataEncoding.cpp" />
     <ClCompile Include="Limit.cpp" />

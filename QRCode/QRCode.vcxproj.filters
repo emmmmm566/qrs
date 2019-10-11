@@ -13,6 +13,7 @@
     <ClInclude Include="QRCodePaint.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="QRCodeEncoding.h" />
+    <ClInclude Include="Combination.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BasicInfo.cpp" />
@@ -27,6 +28,7 @@
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="QRCodePaint.cpp" />
     <ClCompile Include="QRCodeEncoding.cpp" />
+    <ClCompile Include="Combination.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="QRCode.rc" />

@@ -4,15 +4,16 @@
 #include "BasicInfo.h"
 #include "CorrectionEncoding.h"
 #include "Tool.h"
-#include"QRCodePaint.h"
+#include "QRCodePaint.h"
+#include "Combination.h"
 using namespace std;
 
 using namespace qrcode;
-int WINAPI WinMain(HINSTANCE hThisInst, HINSTANCE hPrevInst, LPSTR lpszArgs, int nWinMode){
-	QRCodePaint p(hThisInst);
-	p.ShowDialogBox(NULL);
-
-}
+//int WINAPI WinMain(HINSTANCE hThisInst, HINSTANCE hPrevInst, LPSTR lpszArgs, int nWinMode){
+//	QRCodePaint p(hThisInst);
+//	p.ShowDialogBox(NULL);
+//
+//}
 //int main(){
 //	qrcode::ModeEncoding e;
 //	string x=e.Encode("01234567", qrcode::mode::Number_Mode);
@@ -30,3 +31,16 @@ int WINAPI WinMain(HINSTANCE hThisInst, HINSTANCE hPrevInst, LPSTR lpszArgs, int
 //	cin >> y;
 //
 //}
+int main(){
+	qrcode::BasicInfo *p = new qrcode::BasicInfo(1, mode::Number_Mode, level::Correction_M);
+	qrcode::Combination c;
+	c.setBasicInfo(p);
+	c.caculatePolynomeAlpha();
+	for (int i = 0; i < 77777; i++){
+		for (int j = 0; j < 2431; j++){
+			std::cout << i + j;
+		}
+	}
+	int x;
+	cin >> x;
+}
